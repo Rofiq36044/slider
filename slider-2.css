@@ -1,0 +1,122 @@
+
+.home .carousel-item{
+    min-height: 80vh;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+}
+.home .carousel-item::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .3);
+}
+.home .carousel-item .container{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+.home .carousel-item h1{
+    font-size: 80px;
+    color: #fff;
+    margin: 0 0 10px;
+    opacity: 0;
+}
+.home .carousel-item p{
+    font-size: 30px;
+    margin: 0;
+    color: #eee;
+    opacity: 0;
+}
+.home .carousel-item.active h1{
+    animation: faleft 0.5s ease forwards;
+}
+.home .carousel-item.active p{
+    animation: faright 0.5s ease forwards;
+}
+@keyframes faleft{
+    0%{
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+@keyframes faright{
+    0%{
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+.home .carousel-controls{
+    position: absolute;
+    left: 50%;
+    bottom: 40px;
+    z-index: 10;
+    transform: translateX(-50%);
+}
+.home .carousel-indicators{
+    position: relative;
+}
+.home .carousel-indicators button{
+    height: 60px; /*img icon*/
+    width: 90px; /*img icon*/
+    margin: 0 5px;
+    border-radius: 50%;
+    background-position: center;
+    background-size: cover;
+    border: 2px solid transparent;
+    transition: all 0.3s linear;
+}
+.home .carousel-indicators button.active{
+    border-color: #fff;
+    transform:scale(1.2);
+}
+.home .carousel-control-next,
+.home .carousel-control-prev{
+    height: 60px;
+    width: 60px;
+    opacity: 1;
+    z-index: 3;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+}
+.home .carousel-control-next:hover,
+.home .carousel-control-prev:hover{
+    box-shadow: 0 0 10px #fff;
+}
+.home .carousel-control-next{
+    right: -40px;
+}
+.home .carousel-control-prev{
+    left: -40px;
+}
+@media(max-width:767px){
+    .home .carousel-control-next,
+    .home .carousel-control-prev{
+        display: none;
+    }
+    .home .carousel-indicators button{
+        width: 60px;
+        height: 40px;
+    }
+    .home .carousel-item h1{
+        font-size: 45px;
+    }
+    .home .carousel-item p{
+        font-size: 15px;
+    }
+}
